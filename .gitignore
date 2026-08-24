@@ -1,0 +1,29 @@
+# Python y Kivy
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Android / Buildozer
+app/.buildozer/
+app/bin/
+
+# PlatformIO
+firmware/.pio/
+
+# Credenciales y configuración privada
+**/secrets.h
+.env
+.env.*
+
+# Datos generados por la aplicación
+sessions/
+*.csv
+
+# Editores y sistema operativo
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+

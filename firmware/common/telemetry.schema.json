@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lobos-racing.local/schemas/telemetry-v1.1.1.json",
+  "title": "Lobos Racing Telemetria v1.1.1",
+  "type": "object",
+  "required": ["seq", "speed_kmh", "temp_c", "bms1", "bms2"],
+  "properties": {
+    "seq": {"type": "integer", "minimum": 0},
+    "uptime_ms": {"type": "integer", "minimum": 0},
+    "speed_kmh": {"type": "number", "minimum": 0},
+    "rpm": {"type": "number", "minimum": 0},
+    "temp_c": {"type": "number"},
+    "chassis_fault": {"type": "boolean"},
+    "state_flags": {"type": "integer", "minimum": 0},
+    "alarm_flags": {"type": "integer", "minimum": 0},
+    "source_processed_seq": {"type": "integer", "minimum": 0},
+    "source_acquisition_seq": {"type": "integer", "minimum": 0},
+    "processing_time_us": {"type": "integer", "minimum": 0},
+    "raw_age_ms": {"type": "integer", "minimum": 0},
+    "data_age_ms": {"type": "integer", "minimum": 0},
+    "data_valid": {"type": "boolean"},
+    "rp2040_online": {"type": "boolean"},
+    "bms1": {"$ref": "#/$defs/bms"},
+    "bms2": {"$ref": "#/$defs/bms"}
+  },
+  "$defs": {
+    "bms": {
+      "type": "object",
+      "required": ["voltage_v", "current_a"],
+      "properties": {
+        "voltage_v": {"type": "number"},
+        "current_a": {"type": "number"},
+        "power_w": {"type": "number"},
+        "temp_c": {"type": ["number", "null"]},
+        "soc_pct": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "age_ms": {"type": "integer", "minimum": 0},
+        "connected": {"type": "boolean"},
+        "valid": {"type": "boolean"},
+        "flags": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+

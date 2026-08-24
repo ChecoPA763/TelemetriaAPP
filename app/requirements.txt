@@ -1,0 +1,4 @@
+kivy==2.3.1
+paho-mqtt==2.1.0
+certifi
+charset-normalizer==3.4.0
